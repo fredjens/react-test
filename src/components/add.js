@@ -12,7 +12,7 @@ const Add = React.createClass({
     propTypes: {
         onSubmit: React.PropTypes.func.isRequired,
     },
-    getInitialState: () => {
+    getInitialState() {
         const item = {
             author: '',
             text: '',
