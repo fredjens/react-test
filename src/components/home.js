@@ -20,17 +20,22 @@ const Home = React.createClass({
              number: data.length,
         };
       },
+      componentDidMount: function() {
+          const handlenumber = this.props.handlenumber.bind(this);
+          handlenumber(this.state.data.length);
+      },
     handleCommentSubmit(item) {
+
         data.push(item);
         data.sort(decending);
         this.setState({ data });
         this.setState({ number: data.length });
+        handlenumber(this.state.data.length)
     },
     render() {
         return (
             <div className="container">
                 <div className="jumbotron">
-                    <Counter number={this.state.number} />
                     <h1>Hello, World</h1>
                     <p>asdfasdf fd asd f asd f asd f afds</p>
                     <button className="btn btn-primary btn-lg">Call to action</button>
@@ -40,6 +45,7 @@ const Home = React.createClass({
                         <Box name="asdfasd" />
                     </div>
                 </div>
+                {console.log(this.props)}
                 <Add onSubmit={this.handleCommentSubmit} />
                 <Repeat data={this.state.data} />
             </div>
