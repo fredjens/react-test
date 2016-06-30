@@ -1,6 +1,6 @@
 # React test
 
-Just played around...
+Just played around with states and props...
 
 * React
 * Webpack
