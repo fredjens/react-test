@@ -45,8 +45,7 @@ const Home = React.createClass({
                         <Box name="asdfasd" />
                     </div>
                 </div>
-                {console.log(this.props)}
-                <Add onSubmit={this.handleCommentSubmit} />
+                <Add onSubmit={this.handleCommentSubmit} id={this.state.number} />
                 <Repeat data={this.state.data} />
             </div>
         );

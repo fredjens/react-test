@@ -1,7 +1,8 @@
 
 import React from 'react';
+import data from '../data/data';
 
-let lastId = 3;
+let lastId = data.length + 1;
 
 function makeId() {
     return lastId++;
@@ -11,6 +12,7 @@ function makeId() {
 const Add = React.createClass({
     propTypes: {
         onSubmit: React.PropTypes.func.isRequired,
+        id: React.PropTypes.number.isRequired,
     },
     getInitialState() {
         const item = {
@@ -33,7 +35,7 @@ const Add = React.createClass({
             return;
         }
         this.props.onSubmit({
-            id: makeId(),
+            id: this.props.id + 1,
             author,
             text,
         });

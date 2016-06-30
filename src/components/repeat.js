@@ -10,8 +10,7 @@ const Repeat = React.createClass({
             return (
               <div key={item.id}>
                 <h2>{item.author}</h2>
-                <p>{item.text}</p>
-                {item.id}
+                <p>{item.text} - {item.id}</p>
               </div>
             );
         });
