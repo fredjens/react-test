@@ -25,12 +25,12 @@ const Home = React.createClass({
           handlenumber(this.state.data.length);
       },
     handleCommentSubmit(item) {
-
+        const handlenumber = this.props.handlenumber.bind(this);
         data.push(item);
         data.sort(decending);
         this.setState({ data });
         this.setState({ number: data.length });
-        handlenumber(this.state.data.length)
+        handlenumber(this.state.data.length);
     },
     render() {
         return (

@@ -5,19 +5,18 @@ import Counter from './counter.js';
 
 
 export default class Main extends React.Component {
-    constructor () {
-        super()
+    constructor() {
+        super();
         this.state = {
             data: [],
-            number: null
-        }
+            number: null,
+        };
     }
-    handlenumber (n) {
+    handlenumber(n) {
         this.setState({
             number: n,
-        })
+        });
     }
-
     render() {
         return (
             <div className="app">
