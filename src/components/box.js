@@ -1,17 +1,12 @@
 
 import React from 'react';
 
-const Box = React.createClass({
-    propTypes: {
-        name: React.PropTypes.string.isRequired,
-    },
-    render() {
-        return (
-            <div className="label label-default">
-                {this.props.name}
-            </div>
-        );
-    },
-});
+const Box = props =>
+    <div className="label label-default">
+        {props.name}
+    </div>
+;
+
+Box.propTypes = { name: React.PropTypes.string.isRequired };
 
 export default Box;

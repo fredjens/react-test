@@ -1,16 +1,13 @@
 
 import React from 'react';
 
-const Repeat = React.createClass({
-    propTypes: {
-        data: React.PropTypes.array.isRequired,
-    },
+class Repeat extends React.Component {
     render() {
         const list = this.props.data.map(item => {
             return (
-              <div key={item.id}>
-                <h2>{item.author}</h2>
-                <p>{item.text} - {item.id}</p>
+              <div key={item.id} className="animated slideInDown">
+                <h2>{item.title}</h2>
+                <p>{item.text} ({item.id})</p>
               </div>
             );
         });
@@ -19,7 +16,9 @@ const Repeat = React.createClass({
             {list}
           </div>
         );
-    },
-});
+    }
+}
+
+Repeat.propTypes = { data: React.PropTypes.array.isRequired };
 
 export default Repeat;

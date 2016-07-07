@@ -1,17 +1,15 @@
 
 import React from 'react';
 
-const Number = React.createClass({
-    propTypes: {
-        number: React.PropTypes.number.isRequired,
-    },
-    render() {
-        return (
-            <div className="nav navbar-nav navbar-text navbar-right">
-                <div className="label label-default">{this.props.number} articles</div>
-            </div>
-        );
-    },
-});
+const Counter = props =>
+    <div className="nav navbar-nav navbar-text navbar-right">
+        <div className="label label-default">
+            {props.number}
+            {props.number === 1 ? ' article' : ' articles'}
+        </div>
+    </div>
+;
 
-export default Number;
+Number.propTypes = { number: React.PropTypes.number.isRequired };
+
+export default Counter;

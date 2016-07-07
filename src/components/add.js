@@ -1,65 +1,60 @@
 
 import React from 'react';
-import data from '../data/data';
 
-let lastId = data.length + 1;
-
-function makeId() {
-    return lastId++;
-}
-
-// tutorial16.js
-const Add = React.createClass({
-    propTypes: {
-        onSubmit: React.PropTypes.func.isRequired,
-        id: React.PropTypes.number.isRequired,
-    },
-    getInitialState() {
-        const item = {
-            author: '',
-            text: '',
+class Add extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: props.id + 1,
         };
-        return item;
-    },
-    handleAuthorChange(e) {
-        this.setState({ author: e.target.value });
-    },
+    }
+
+    handleTitleChange(e) {
+        this.setState({ title: e.target.value });
+    }
+
     handleTextChange(e) {
         this.setState({ text: e.target.value });
-    },
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        const author = this.state.author.trim();
-        const text = this.state.text.trim();
-        if (!text || !author) {
-            return;
-        }
         this.props.onSubmit({
-            id: this.props.id + 1,
-            author,
-            text,
+            id: this.state.id,
+            title: this.state.title.trim(),
+            text: this.state.text.trim(),
         });
-        this.setState({ author: '', text: '' });
-    },
+        this.setState({ title: '', text: '', id: this.state.id + 1 });
+    }
+
     render() {
         return (
-            <form className="commentForm" onSubmit={this.handleSubmit}>
+            <form className="commentForm" onSubmit={this.handleSubmit.bind(this)}>
                 <input
                   type="text"
-                  placeholder="Your name"
-                  value={this.state.author}
-                  onChange={this.handleAuthorChange}
+                  placeholder="Title here.."
+                  value={this.state.title}
+                  onChange={this.handleTitleChange.bind(this)}
                 />
                 <input
                   type="text"
                   placeholder="Say something..."
                   value={this.state.text}
-                  onChange={this.handleTextChange}
+                  onChange={this.handleTextChange.bind(this)}
                 />
-                <input type="submit" value="Post" className="btn btn-primary" />
+                <button
+                    className="btn btn-primary"
+                    disabled={!this.state.title || !this.state.text}>
+                    Publish
+                </button>
             </form>
         );
-    },
-});
+    }
+}
+
+Add.propTypes = {
+    onSubmit: React.PropTypes.func.isRequired,
+    id: React.PropTypes.number.isRequired,
+};
 
 export default Add;
