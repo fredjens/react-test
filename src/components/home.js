@@ -1,6 +1,5 @@
 
 import React from 'react';
-
 import Repeat from './repeat';
 import Add from './add';
 import data from '../data/data';
