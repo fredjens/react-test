@@ -1,18 +1,22 @@
 
 import React from 'react';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
-import Main from './components/main';
+import App from './components/app';
 import Home from './components/home';
 import About from './components/about';
 
 const routes = (
-    <Router history={hashHistory}>
-        <Route path="/" component={Main}>
-            <IndexRoute component={Home} />
-            <Route path="/about" component={About} />
-        </Route>
-    </Router>
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home} />
+                <Route path="/about" component={About} />
+            </Route>
+        </Router>
+    </Provider>
 );
 
 export default routes;

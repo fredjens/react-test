@@ -3,10 +3,10 @@ import React from 'react';
 
 const Box = props =>
     <div className="label label-default">
-        {props.name}
+        {props.number}
     </div>
 ;
 
-Box.propTypes = { name: React.PropTypes.string.isRequired };
+Box.propTypes = { number: React.PropTypes.number.isRequired };
 
 export default Box;

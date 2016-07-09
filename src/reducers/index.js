@@ -1,6 +1,11 @@
-import data from '../data/data';
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
-const initialState = {
-    data,
-    number: data.length,
-};
+import articles from './articles';
+
+const rootReducer = combineReducers({
+    articles,
+    routing: routerReducer,
+});
+
+export default rootReducer;

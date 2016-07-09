@@ -10,7 +10,7 @@
     "url": "git://github.com/fredjens/react-test.git"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "production": "webpack -p"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-dom": "^0.14.6",
     "react-redux": "^4.4.5",
     "react-router": "^2.0.1",
+    "react-router-redux": "^4.0.5",
     "redux": "^3.5.2"
   },
   "devDependencies": {
