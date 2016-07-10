@@ -11,12 +11,10 @@ class Home extends React.Component {
     }
 
     handleLike(item) {
-        console.log(item);
         this.props.like(item);
     }
 
     handleRemove(item) {
-        console.log(item);
         this.props.removeArticle(item);
     }
 

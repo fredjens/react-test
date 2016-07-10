@@ -10,6 +10,11 @@ const Data = {
         likes: 1,
     }, {
         id: 1,
+        title: 'Another data from array',
+        text: 'And we live after refresh',
+        likes: 5,
+    }, {
+        id: 2,
         title: 'I´m from data array too',
         text: 'And we live after refresh',
         likes: 3,
